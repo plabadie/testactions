@@ -7,11 +7,11 @@ on:
     types: [opened, synchronize]
   workflow_dispatch:
     # empty as it is used only to manually trigger the workflow
-  
-env:
-  NODE_VERSION: '16'
 
-concurrency: 
+env:
+  NODE_VERSION: "16"
+
+concurrency:
   group: ci-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
@@ -23,33 +23,33 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 0    
+          fetch-depth: 0
       - name: Run Script
-        run: ./run.sh 45 0 
+        run: ./run.sh 45 0
   job02:
     name: Job 02
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 0    
+          fetch-depth: 0
       - name: Run Script
-        run: ./run.sh 45 0 
+        run: ./run.sh 45 0
   job03:
     name: Job 03
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 0    
+          fetch-depth: 0
       - name: Run Script
-        run: ./run.sh 5 1 
+        run: ./run.sh 5 0
   job04:
     name: Job 04
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 0    
+          fetch-depth: 0
       - name: Run Script
-        run: ./run.sh 45 0 
+        run: ./run.sh 45 0
