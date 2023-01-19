@@ -18,9 +18,6 @@ jobs:
     name: Set new PR to draft.
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
       - name: Run Script
         run: |
           echo "Pull request ${{github.event.number}}, token ${{ github.token }}"
