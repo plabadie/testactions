@@ -10,6 +10,7 @@ on:
 
 env:
   NODE_VERSION: "16"
+  GH_TOKEN: ${{ github.token }}
 
 concurrency:
   group: ci-${{ github.head_ref || github.run_id }}
@@ -17,8 +18,8 @@ concurrency:
 
 name: Change new PRs to draft
 jobs:
-  ci-job01:
-    name: CI Job 01
+  change-to-draft:
+    name: Set new PR to draft.
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -26,5 +27,5 @@ jobs:
           fetch-depth: 0
       - name: Run Script
         run: |
-          echo "Pull request ${{github.event.number}}"
+          echo "Pull request ${{github.event.number}}, token ${{ github.token }}"
           gh pr view ${{github.event.number}}
