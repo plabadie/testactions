@@ -12,7 +12,7 @@ env:
   NODE_VERSION: "16"
 
 concurrency:
-  group: ci-${{ github.head_ref || github.run_id }}
+  group: continuous-ntegration-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
 name: Continuous Integration
