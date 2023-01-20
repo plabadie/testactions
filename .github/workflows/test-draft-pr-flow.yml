@@ -20,5 +20,5 @@ jobs:
     steps:
       - name: Run Script
         run: |
-          gh pr view -R plabadie/testactions
+          gh pr view ${{github.event.number}} -R plabadie/testactions
           gh pr ready --undo ${{github.event.number}} -R plabadie/testactions
