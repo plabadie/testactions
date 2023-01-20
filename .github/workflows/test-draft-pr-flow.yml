@@ -20,5 +20,4 @@ jobs:
     steps:
       - name: Run Script
         run: |
-          echo "Pull request ${{github.event.number}}, token ${{ github.token }}"
-          gh pr view ${{github.event.number}} -R plabadie/testactions
+          gh pr ready --undo ${{github.event.number}} -R plabadie/testactions
