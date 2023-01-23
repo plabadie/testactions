@@ -32,7 +32,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 0
+          fetch-depth: 1
       - name: Run Script
         run: ./run.sh 45 0
   ssr-e2e:
@@ -44,6 +44,9 @@ jobs:
           fetch-depth: 0
       - name: Run Script
         run: ./run.sh 5 0
+      - name: Handle Failure
+        if: { { failure() } }
+        run: gh pr ready --undo ${{github.event.number}} -R plabadie/testactions
   lighthouse:
     name: Lighthouse
     runs-on: ubuntu-latest
