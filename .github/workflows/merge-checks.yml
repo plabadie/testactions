@@ -45,7 +45,7 @@ jobs:
       - name: Run Script
         run: ./run.sh 5 0
       - name: Handle Failure
-        if: {{ failure() }}
+        if: ${{ failure() }}
         run: gh pr ready --undo ${{github.event.number}} -R plabadie/testactions
   lighthouse:
     name: Lighthouse
