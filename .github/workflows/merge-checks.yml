@@ -29,7 +29,7 @@ jobs:
         run: ./run.sh 45 0
       - name: Handle Failure
         if: ${{ failure() }}
-        run: gh pr ready --undo ${{github.event.number}} -R plabadie/testactions
+        run: gh pr ready --undo ${{github.event.number}} -R ${{ github.repository }}
   b2b-e2e:
     name: Merge Check - B2B e2e
     runs-on: ubuntu-latest
@@ -41,7 +41,7 @@ jobs:
         run: ./run.sh 45 0
       - name: Handle Failure
         if: ${{ failure() }}
-        run: gh pr ready --undo ${{github.event.number}} -R plabadie/testactions
+        run: gh pr ready --undo ${{github.event.number}} -R ${{ github.repository }}
   ssr-e2e:
     name: Merge Check - SSR e2e
     runs-on: ubuntu-latest
@@ -53,7 +53,7 @@ jobs:
         run: ./run.sh 5 1
       - name: Handle Failure
         if: ${{ failure() }}
-        run: gh pr ready --undo ${{github.event.number}} -R plabadie/testactions
+        run: gh pr ready --undo ${{github.event.number}} -R ${{ github.repository }}
   lighthouse:
     name: Merge Check - Lighthouse
     runs-on: ubuntu-latest
@@ -65,4 +65,4 @@ jobs:
         run: ./run.sh 45 0
       - name: Handle Failure
         if: ${{ failure() }}
-        run: gh pr ready --undo ${{github.event.number}} -R plabadie/testactions
+        run: gh pr ready --undo ${{github.event.number}} -R ${{ github.repository }}
