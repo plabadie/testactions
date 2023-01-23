@@ -16,7 +16,7 @@ concurrency:
   group: merge-checks-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
-name: CI Pre-Merge
+name: Pre Merge Checks
 jobs:
   b2c-e2e:
     name: Merge Check - B2C e2e

@@ -12,10 +12,10 @@ env:
   NODE_VERSION: "16"
 
 concurrency:
-  group: continuous-ntegration-${{ github.head_ref || github.run_id }}
+  group: continuous-integration-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
-name: CI Push
+name: Continuous Integration
 jobs:
   ci-job01:
     name: CI - Job 01
