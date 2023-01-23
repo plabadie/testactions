@@ -14,10 +14,10 @@ env:
   NODE_VERSION: "16"
   GH_TOKEN: ${{ github.token }}
 
-name: Change new PRs to draft
+name: PR Update
 jobs:
   change-to-draft:
-    name: Set new PR to draft.
+    name: Set PR state to draft.
     runs-on: ubuntu-latest
     steps:
       - name: Run Script
