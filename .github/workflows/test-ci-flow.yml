@@ -15,7 +15,7 @@ concurrency:
   group: continuous-ntegration-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
-name: CI (push)
+name: CI Push
 jobs:
   ci-job01:
     name: CI - Job 01
