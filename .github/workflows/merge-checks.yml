@@ -34,7 +34,7 @@ jobs:
         with:
           fetch-depth: 1
       - name: Run Script
-        run: ./run.sh 45 0
+        run: ./run.sh 45 1
   ssr-e2e:
     name: SSR e2e
     runs-on: ubuntu-latest
