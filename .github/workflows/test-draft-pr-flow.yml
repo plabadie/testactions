@@ -5,6 +5,8 @@ on:
   #     - release/**
   pull_request:
     types: [opened, synchronize]
+    branches:
+      - "develop"
   workflow_dispatch:
     # empty as it is used only to manually trigger the workflow
 
