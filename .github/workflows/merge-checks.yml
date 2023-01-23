@@ -23,18 +23,24 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 0
+          fetch-depth: 1
       - name: Run Script
         run: ./run.sh 45 0
+      - name: Handle Failure
+        if: ${{ failure() }}
+        run: gh pr ready --undo ${{github.event.number}} -R plabadie/testactions
   b2b-e2e:
     name: B2B e2e
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 1
+          fetch-depth: 0
       - name: Run Script
         run: ./run.sh 45 1
+      - name: Handle Failure
+        if: ${{ failure() }}
+        run: gh pr ready --undo ${{github.event.number}} -R plabadie/testactions
   ssr-e2e:
     name: SSR e2e
     runs-on: ubuntu-latest
@@ -56,3 +62,6 @@ jobs:
           fetch-depth: 0
       - name: Run Script
         run: ./run.sh 45 0
+      - name: Handle Failure
+        if: ${{ failure() }}
+        run: gh pr ready --undo ${{github.event.number}} -R plabadie/testactions
