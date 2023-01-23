@@ -38,7 +38,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Run Script
-        run: ./run.sh 45 1
+        run: ./run.sh 45 0
       - name: Handle Failure
         if: ${{ failure() }}
         run: gh pr ready --undo ${{github.event.number}} -R plabadie/testactions
@@ -50,7 +50,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Run Script
-        run: ./run.sh 5 0
+        run: ./run.sh 5 1
       - name: Handle Failure
         if: ${{ failure() }}
         run: gh pr ready --undo ${{github.event.number}} -R plabadie/testactions
