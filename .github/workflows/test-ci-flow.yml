@@ -12,13 +12,13 @@ env:
   NODE_VERSION: "16"
 
 concurrency:
-  group: ci-${{ github.head_ref || github.run_id }}
+  group: continuous-integration-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
 name: Continuous Integration
 jobs:
   ci-job01:
-    name: CI Job 01
+    name: CI - Job 01
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -27,7 +27,7 @@ jobs:
       - name: Run Script
         run: ./run.sh 45 0
   ci-job02:
-    name: CI Job 02
+    name: CI - Job 02
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -36,7 +36,7 @@ jobs:
       - name: Run Script
         run: ./run.sh 45 0
   ci-job03:
-    name: CI Job 03
+    name: CI - Job 03
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -45,7 +45,7 @@ jobs:
       - name: Run Script
         run: ./run.sh 5 0
   ci-job04:
-    name: CI Job 04
+    name: CI - Job 04
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
