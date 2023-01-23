@@ -1,10 +1,8 @@
 on:
-  # push:
-  #   branches:
-  #     - develop
-  #     - release/**
   pull_request:
     types: [ready_for_review]
+    # branches:
+    #   - "develop"
   workflow_dispatch:
     # empty as it is used only to manually trigger the workflow
 
@@ -27,9 +25,9 @@ jobs:
           fetch-depth: 1
       - name: Run Script
         run: ./run.sh 45 0
-      - name: Handle Failure
-        if: ${{ failure() }}
-        run: gh pr ready --undo ${{github.event.number}} -R ${{ github.repository }}
+      # - name: Handle Failure
+      #   if: ${{ failure() }}
+      #   run: gh pr ready --undo ${{github.event.number}} -R ${{ github.repository }}
   b2b-e2e:
     name: Merge Check - B2B e2e
     runs-on: ubuntu-latest
@@ -39,9 +37,9 @@ jobs:
           fetch-depth: 0
       - name: Run Script
         run: ./run.sh 45 0
-      - name: Handle Failure
-        if: ${{ failure() }}
-        run: gh pr ready --undo ${{github.event.number}} -R ${{ github.repository }}
+      # - name: Handle Failure
+      #   if: ${{ failure() }}
+      #   run: gh pr ready --undo ${{github.event.number}} -R ${{ github.repository }}
   ssr-e2e:
     name: Merge Check - SSR e2e
     runs-on: ubuntu-latest
@@ -50,10 +48,10 @@ jobs:
         with:
           fetch-depth: 0
       - name: Run Script
-        run: ./run.sh 5 1
-      - name: Handle Failure
-        if: ${{ failure() }}
-        run: gh pr ready --undo ${{github.event.number}} -R ${{ github.repository }}
+        run: ./run.sh 5 0
+      # - name: Handle Failure
+      #   if: ${{ failure() }}
+      #   run: gh pr ready --undo ${{github.event.number}} -R ${{ github.repository }}
   lighthouse:
     name: Merge Check - Lighthouse
     runs-on: ubuntu-latest
@@ -63,6 +61,6 @@ jobs:
           fetch-depth: 0
       - name: Run Script
         run: ./run.sh 45 0
-      - name: Handle Failure
-        if: ${{ failure() }}
-        run: gh pr ready --undo ${{github.event.number}} -R ${{ github.repository }}
+      # - name: Handle Failure
+      #   if: ${{ failure() }}
+      #   run: gh pr ready --undo ${{github.event.number}} -R ${{ github.repository }}
