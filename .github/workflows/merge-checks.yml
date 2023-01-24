@@ -24,7 +24,7 @@ jobs:
         with:
           fetch-depth: 1
       - name: Run Script
-        run: ./run.sh 45 0
+        run: ./run.sh 5 1
       # - name: Handle Failure
       #   if: ${{ failure() }}
       #   run: gh pr ready --undo ${{github.event.number}} -R ${{ github.repository }}
@@ -64,3 +64,11 @@ jobs:
       # - name: Handle Failure
       #   if: ${{ failure() }}
       #   run: gh pr ready --undo ${{github.event.number}} -R ${{ github.repository }}
+  mergechecks-result:
+    needs: b2c-e2e
+    name: Merge Check - Result
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Script
+        if: ${{ failure() }}
+        run: echo "Merge checks is a failure"
