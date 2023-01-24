@@ -70,8 +70,11 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ always() }}
     steps:
-      - name: Run Script
-        if: ${{ always() }}
+      - name: If Failure
+        if: ${{ failure() }}
         run: |
-          echo "Failure: ${{ failure() }}  success: ${{ success() }}  canceled:${{ canceled() }} "
-          core.setFailed('Merge checks failed')
+          echo "failure is true"
+      - name: If Success
+        if: ${{ success() }}
+        run: |
+          echo "Success is true"
