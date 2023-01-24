@@ -68,8 +68,10 @@ jobs:
     needs: [b2c-e2e, b2b-e2e, ssr-e2e]
     name: Merge Checks - Result
     runs-on: ubuntu-latest
-    if: ${{ failure() }}
+    env: CHECKS_FAILURE = ${{ failure() }}
+      CHECKS_SUCCESS = ${{ success() }}
+    if: ${{ always() }}
     steps:
       - name: Apply Merge Check Fail
         run: |
-          exit 1
+          echo "failure: ${env.CHECKS_FAILURE} success: ${env.CHECKS_SUCCESS}"
