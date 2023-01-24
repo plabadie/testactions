@@ -71,4 +71,4 @@ jobs:
     steps:
       - name: Run Script
         if: ${{ failure() }}
-        run: echo "Merge checks is a failure"
+        run: core.setFailed('Merge checks failed')
