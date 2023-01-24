@@ -70,11 +70,6 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ failure() }}
     steps:
-      - name: If Failure
-        if: ${{ failure() }}
+      - name: Apply Merge Check Fail
         run: |
-          echo "failure is true"
-      - name: If Success
-        if: ${{ success() }}
-        run: |
-          echo "Success is true"
+          exit 1
