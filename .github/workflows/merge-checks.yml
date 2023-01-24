@@ -68,7 +68,7 @@ jobs:
     needs: [b2c-e2e, b2b-e2e, ssr-e2e]
     name: Merge Checks - Result
     runs-on: ubuntu-latest
-    if: ${{ always() }}
+    if: ${{ failure() }}
     steps:
       - name: If Failure
         if: ${{ failure() }}
