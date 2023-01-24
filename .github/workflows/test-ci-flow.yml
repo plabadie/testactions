@@ -53,3 +53,11 @@ jobs:
           fetch-depth: 0
       - name: Run Script
         run: ./run.sh 5 0
+  ci-result:
+    needs: [ci-job01, ci-job02, ci-job03, ci-job04]
+    name: CI - Result
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Script
+        if: ${{ failure() }}
+        run: core.setFailed('Merge checks failed')
