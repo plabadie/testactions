@@ -24,7 +24,7 @@ jobs:
         with:
           fetch-depth: 1
       - name: Run Script
-        run: ./run.sh 5 0
+        run: ./run.sh 5 1
       # - name: Handle Failure
       #   if: ${{ failure() }}
       #   run: gh pr ready --undo ${{github.event.number}} -R ${{ github.repository }}
@@ -61,7 +61,7 @@ jobs:
           fetch-depth: 0
       - name: Run Script
         run: ./run.sh 10 0
-      # - name: Handle Failure  
+      # - name: Handle Failure
       #   if: ${{ failure() }}
       #   run: gh pr ready --undo ${{github.event.number}} -R ${{ github.repository }}
   mergechecks-result:
