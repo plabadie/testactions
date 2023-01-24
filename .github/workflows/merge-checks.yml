@@ -71,5 +71,7 @@ jobs:
     if: ${{ always() }}
     steps:
       - name: Run Script
-        if: ${{ failure() }}
-        run: core.setFailed('Merge checks failed')
+        if: ${{ always() }}
+        run: |
+          echo "Failure: ${{ failure() }}  success: ${{ success() }}  canceled:${{ canceled() }} "
+          core.setFailed('Merge checks failed')
