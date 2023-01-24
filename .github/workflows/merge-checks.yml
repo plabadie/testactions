@@ -36,7 +36,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Run Script
-        run: ./run.sh 45 0
+        run: ./run.sh 10 0
       # - name: Handle Failure
       #   if: ${{ failure() }}
       #   run: gh pr ready --undo ${{github.event.number}} -R ${{ github.repository }}
@@ -60,13 +60,13 @@ jobs:
         with:
           fetch-depth: 0
       - name: Run Script
-        run: ./run.sh 45 0
+        run: ./run.sh 10 0
       # - name: Handle Failure
       #   if: ${{ failure() }}
       #   run: gh pr ready --undo ${{github.event.number}} -R ${{ github.repository }}
   mergechecks-result:
     needs: [b2c-e2e, b2b-e2e, ssr-e2e]
-    name: MC - Result
+    name: Merge Checks - Result
     runs-on: ubuntu-latest
     steps:
       - name: Run Script
