@@ -66,7 +66,7 @@ jobs:
       #   run: gh pr ready --undo ${{github.event.number}} -R ${{ github.repository }}
   mergechecks-result:
     needs: [b2c-e2e, b2b-e2e, ssr-e2e]
-    name: Merge Checks - Result
+    name: Merge Checks Success
     runs-on: ubuntu-latest
     steps:
       - name: Run Script
