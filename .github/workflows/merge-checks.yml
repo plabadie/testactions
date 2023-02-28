@@ -24,7 +24,7 @@ jobs:
         with:
           fetch-depth: 1
       - name: Run Script
-        run: ./run.sh 45 0
+        run: ./run.sh 5 1
       # - name: Handle Failure
       #   if: ${{ failure() }}
       #   run: gh pr ready --undo ${{github.event.number}} -R ${{ github.repository }}
@@ -36,7 +36,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Run Script
-        run: ./run.sh 45 0
+        run: ./run.sh 10 0
       # - name: Handle Failure
       #   if: ${{ failure() }}
       #   run: gh pr ready --undo ${{github.event.number}} -R ${{ github.repository }}
@@ -60,7 +60,28 @@ jobs:
         with:
           fetch-depth: 0
       - name: Run Script
-        run: ./run.sh 45 0
+        run: ./run.sh 10 0
       # - name: Handle Failure
       #   if: ${{ failure() }}
       #   run: gh pr ready --undo ${{github.event.number}} -R ${{ github.repository }}
+  mergechecks-result:
+    needs: [b2c-e2e, b2b-e2e, ssr-e2e]
+    name: Merge Checks - Result
+    runs-on: ubuntu-latest
+    if: ${{ always() }}
+    steps:
+      - name: Dump GitHub context
+        id: github_context_step
+        run: echo '${{ toJSON(github) }}'
+      - name: Dump job context
+        run: echo '${{ toJSON(job) }}'
+      - name: Dump steps context
+        run: echo '${{ toJSON(steps) }}'
+      - name: Dump runner context
+        run: echo '${{ toJSON(runner) }}'
+      - name: Dump strategy context
+        run: echo '${{ toJSON(strategy) }}'
+      - name: Dump matrix context
+        run: echo '${{ toJSON(matrix) }}'
+      - name: Dump matrix context
+        run: echo '${{ toJSON(env) }}'
