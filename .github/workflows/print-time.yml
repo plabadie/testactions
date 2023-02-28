@@ -1,0 +1,19 @@
+on:
+  schedule:
+    - cron: "* * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: continuous-integration-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+name: Print date and time flow
+jobs:
+  printdate:
+    name: Print Date job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run bash commands
+        run: |
+          echo "Printing the time and date"
+          date
