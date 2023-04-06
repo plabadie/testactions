@@ -23,6 +23,4 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-        run: |
-          ./run.sh 1 0 ${{github.head_ref}}
-
+      - run: ./run.sh 1 0 ${{github.head_ref}}
