@@ -3,8 +3,6 @@ run-name: GitHub Actions Demo Run
 on:
   pull_request:
     types: [opened, synchronize]
-env:
-  BRANCH_NAME: ${{github.head_ref}}
 
 jobs:
   Explore-GitHub-Actions:

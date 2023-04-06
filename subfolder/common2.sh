@@ -2,6 +2,6 @@
 
 function commonFunc {
 
-  echo "Running commonFunc 2"
+  echo "Running commonFunc 3"
      
 }
