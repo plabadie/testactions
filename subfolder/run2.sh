@@ -1,6 +1,6 @@
 echo pausing for $1 seconds before exiting with code $2, additional param $3
 
-source ./common2.sh
+source ./subfolder/common2.sh
 
 commonFunc
 
