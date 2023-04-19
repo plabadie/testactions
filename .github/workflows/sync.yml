@@ -19,4 +19,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+        echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
