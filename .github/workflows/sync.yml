@@ -24,8 +24,8 @@ jobs:
           fetch-depth: 0
       - name: Include remaining pipeline files to the private remote's branch
         run: |
-        echo Event name: ${{ github.event_name }}
-        echo github.event.inputs.branch_to_sync: ${{ github.event.inputs.branch_to_sync }}
-        echo env.DEFAULT_BRANCH_TO_SYNC: ${{ env.DEFAULT_BRANCH_TO_SYNC }}
-        echo Using: ${{ github.event.inputs.branch_to_sync || env.DEFAULT_BRANCH_TO_SYNC }}
-        echo Default branch: ${{ github.event.repository.default_branch }}
+        echo "Event name: ${{ github.event_name }}"
+        echo "github.event.inputs.branch_to_sync: ${{ github.event.inputs.branch_to_sync }}"
+        echo "env.DEFAULT_BRANCH_TO_SYNC: ${{ env.DEFAULT_BRANCH_TO_SYNC }}"
+        echo "Using: ${{ github.event.inputs.branch_to_sync || env.DEFAULT_BRANCH_TO_SYNC }}"
+        echo "Default branch: ${{ github.event.repository.default_branch }}"
