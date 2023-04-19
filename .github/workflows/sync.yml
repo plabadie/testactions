@@ -18,7 +18,7 @@ jobs:
     name: Force sync a branch to the private repository with current git history
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Event name: ${{ github.event_name }}"
+#      - run: echo "Event name: ${{ github.event_name }}"
       - run: echo "github.event.inputs.branch_to_sync: ${{ github.event.inputs.branch_to_sync }}"
       - run: echo "env.DEFAULT_BRANCH_TO_SYNC: ${{ env.DEFAULT_BRANCH_TO_SYNC }}"
       - run: echo "Using: ${{ github.event.inputs.branch_to_sync || env.DEFAULT_BRANCH_TO_SYNC }}"
