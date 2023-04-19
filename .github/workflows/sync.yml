@@ -11,7 +11,7 @@ on:
 name: Sync a branch to private repo
 
 env:
-  DEFAULT_BRANCH_TO_SYNC: 'develop'
+  DEFAULT_BRANCH_TO_SYNC: ${{ github.event.repository.default_branch }}
 
 jobs:
   sync_public_repo_to_private:
