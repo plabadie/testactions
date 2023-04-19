@@ -18,10 +18,8 @@ jobs:
     name: Force sync a branch to the private repository with current git history
     runs-on: ubuntu-latest
     steps:
-      - name: Include remaining pipeline files to the private remote's branch
-        run: |
-        echo "Event name: ${{ github.event_name }}"
-        echo "github.event.inputs.branch_to_sync: ${{ github.event.inputs.branch_to_sync }}"
-        echo "env.DEFAULT_BRANCH_TO_SYNC: ${{ env.DEFAULT_BRANCH_TO_SYNC }}"
-        echo "Using: ${{ github.event.inputs.branch_to_sync || env.DEFAULT_BRANCH_TO_SYNC }}"
-        echo "Default branch: ${{ github.event.repository.default_branch }}"
+      - run: echo "Event name: ${{ github.event_name }}"
+      - run: echo "github.event.inputs.branch_to_sync: ${{ github.event.inputs.branch_to_sync }}"
+      - run: echo "env.DEFAULT_BRANCH_TO_SYNC: ${{ env.DEFAULT_BRANCH_TO_SYNC }}"
+      - run: echo "Using: ${{ github.event.inputs.branch_to_sync || env.DEFAULT_BRANCH_TO_SYNC }}"
+      - run: echo "Default branch: ${{ github.event.repository.default_branch }}"
