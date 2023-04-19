@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron: '0 0 * * 1,4'
+    - cron: '* * * * *'
   workflow_dispatch:
     inputs:
       branch_to_sync:
