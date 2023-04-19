@@ -18,5 +18,4 @@ jobs:
     name: Force sync a branch to the private repository with current git history
     runs-on: ubuntu-latest
     steps:
-      - run: |
-        echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
